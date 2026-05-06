@@ -6,7 +6,7 @@ This project is intentionally small enough to run locally, but structured like a
 
 ## Why This Project Matters
 
-Incident response is a high-value AI engineering use case because responders need fast synthesis across noisy systems. A senior AI engineer has to design for trust: grounded evidence, confidence scoring, repeatable evals, safe recommendations, and human-in-the-loop workflows.
+Incident response is a high-value AI use case because responders need fast synthesis across noisy systems. A useful system has to design for trust: grounded evidence, confidence scoring, repeatable evals, safe recommendations, and human-in-the-loop workflows.
 
 ## Capabilities Demonstrated
 
@@ -55,7 +55,7 @@ The copilot retrieves the most relevant context and produces a structured triage
 ```text
 projects/01-incident-triage-copilot/
   data/                  Sample operational data
-  docs/                  Architecture and leadership notes
+  docs/                  Architecture and implementation notes
   evals/                 Regression cases for model behavior
   src/incident_triage/   Application code
   tests/                 Unit tests

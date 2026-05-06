@@ -42,6 +42,6 @@ The `evals` folder contains expected report properties. A mature system would ex
 - latency and token budget thresholds
 - model comparison reports
 
-## Leadership Signal
+## AI Capabilities Demonstrated
 
-This project shows AI engineering lead judgment by separating model behavior from system guarantees. The core quality bar is not whether an LLM can write a polished summary; it is whether the system can produce grounded, reviewable, operationally useful incident guidance under pressure.
+This project demonstrates grounded retrieval, evidence ranking, structured incident summaries, confidence scoring, and runbook-backed action recommendations. The core quality bar is not whether an LLM can write a polished summary; it is whether the system can produce grounded, reviewable, operationally useful incident guidance under pressure.

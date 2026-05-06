@@ -1,6 +1,6 @@
-# AI Engineering Portfolio
+# AI Projects Portfolio
 
-This repository contains five AI projects designed to demonstrate senior software engineering and AI engineering lead capabilities.
+This repository contains five AI projects designed to demonstrate practical AI capabilities, product use-cases, and implementation patterns.
 
 ## Projects
 

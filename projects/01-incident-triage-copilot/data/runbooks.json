@@ -37,6 +37,6 @@
       "Revert token parsing changes if failures map to a recent release.",
       "Temporarily bypass strict issuer enforcement only with incident commander approval."
     ],
-    "escalation": "Engage payments platform lead and security reviewer before changing token validation policy."
+    "escalation": "Engage the payments platform owner and security reviewer before changing token validation policy."
   }
 ]
