@@ -1,0 +1,12 @@
+{
+  "id": "inc-2026-05-06-001",
+  "service": "checkout-api",
+  "title": "Checkout error rate above threshold",
+  "severity": "SEV2",
+  "metric": "http_5xx_rate",
+  "value": 8.7,
+  "threshold": 2.0,
+  "window_minutes": 10,
+  "timestamp": "2026-05-06T07:42:00Z",
+  "tags": ["checkout", "payment", "token", "release"]
+}

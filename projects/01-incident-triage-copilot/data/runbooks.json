@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rb-checkout-500",
+    "service": "checkout-api",
+    "title": "Checkout 5xx Error Spike",
+    "symptoms": [
+      "Checkout API 5xx rate exceeds threshold",
+      "Payment authorization errors increase",
+      "Customers cannot complete order placement"
+    ],
+    "checks": [
+      "Compare 5xx rate by endpoint and region for the last 30 minutes.",
+      "Inspect recent checkout-api deploys and feature flag changes.",
+      "Sample failed traces and group by exception class."
+    ],
+    "mitigations": [
+      "Disable the newest checkout payment-path feature flag if failures are isolated to the new path.",
+      "Rollback the latest checkout-api deploy if errors started within the deploy window.",
+      "Route traffic away from unhealthy checkout pods if failures are node-local."
+    ],
+    "escalation": "Page checkout-api primary owner, payments on-call, and the incident commander if customer checkout failures continue for more than 15 minutes."
+  },
+  {
+    "id": "rb-payments-token",
+    "service": "payments-gateway",
+    "title": "Payment Token Validation Failures",
+    "symptoms": [
+      "Token validation errors increase",
+      "Payment authorization preflight fails",
+      "Issuer or audience claims are rejected"
+    ],
+    "checks": [
+      "Compare token validation errors by client version.",
+      "Check auth header parsing changes and upstream identity provider health."
+    ],
+    "mitigations": [
+      "Revert token parsing changes if failures map to a recent release.",
+      "Temporarily bypass strict issuer enforcement only with incident commander approval."
+    ],
+    "escalation": "Engage payments platform lead and security reviewer before changing token validation policy."
+  }
+]

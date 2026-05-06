@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eval-checkout-token-regression",
+    "alert": "../data/sample_alert.json",
+    "expected_contains": [
+      "Recent deploy",
+      "Payment token validation",
+      "rollback"
+    ],
+    "minimum_confidence": 0.65,
+    "notes": "Protects the core demo behavior: connect checkout alert, token logs, runbook guidance, and recent deploy."
+  }
+]

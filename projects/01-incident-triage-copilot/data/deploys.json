@@ -1,0 +1,20 @@
+[
+  {
+    "id": "dep-1042",
+    "service": "checkout-api",
+    "timestamp": "2026-05-06T07:24:00Z",
+    "version": "checkout-api@2026.05.06.3",
+    "summary": "Normalize authorization headers before payment token validation and add issuer claim guard.",
+    "author": "riley.chen",
+    "risk_tags": ["checkout", "payment", "token", "release"]
+  },
+  {
+    "id": "dep-1041",
+    "service": "catalog-api",
+    "timestamp": "2026-05-06T06:50:00Z",
+    "version": "catalog-api@2026.05.06.1",
+    "summary": "Refresh regional pricing cache warmup strategy.",
+    "author": "samira.patel",
+    "risk_tags": ["catalog", "cache"]
+  }
+]

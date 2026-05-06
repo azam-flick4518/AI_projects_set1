@@ -1,0 +1,34 @@
+[
+  {
+    "timestamp": "2026-05-06T07:38:21Z",
+    "service": "checkout-api",
+    "level": "ERROR",
+    "message": "Payment token validation failed: missing issuer claim after auth header normalization",
+    "trace_id": "trc_9a21",
+    "tags": ["checkout", "payment", "token"]
+  },
+  {
+    "timestamp": "2026-05-06T07:39:02Z",
+    "service": "checkout-api",
+    "level": "ERROR",
+    "message": "POST /checkout returned 500 after payment authorization preflight",
+    "trace_id": "trc_9a22",
+    "tags": ["checkout", "payment"]
+  },
+  {
+    "timestamp": "2026-05-06T07:41:44Z",
+    "service": "payments-gateway",
+    "level": "WARN",
+    "message": "Token introspection latency p95 increased to 1400ms",
+    "trace_id": "trc_9a23",
+    "tags": ["payment", "token", "latency"]
+  },
+  {
+    "timestamp": "2026-05-06T07:31:11Z",
+    "service": "catalog-api",
+    "level": "INFO",
+    "message": "Cache warmup completed for regional pricing rules",
+    "trace_id": "trc_8f10",
+    "tags": ["catalog"]
+  }
+]

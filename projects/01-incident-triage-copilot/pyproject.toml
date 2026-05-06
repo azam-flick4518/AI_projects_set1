@@ -1,0 +1,10 @@
+[project]
+name = "incident-triage-copilot"
+version = "0.1.0"
+description = "AI-ready incident triage copilot with retrieval, evidence, and deterministic local reasoning."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
