@@ -9,19 +9,28 @@ flowchart LR
     Runbooks["Runbooks"] --> Retriever
     Deploys["Deploy history"] --> Retriever
     Retriever --> Engine["Triage engine"]
-    Engine --> Report["Evidence-backed report"]
+    Engine --> Synth["Report synthesizer"]
+    Synth --> Report["Evidence-backed report"]
 ```
 
 ## Design Choices
 
 - The local retriever is deterministic so tests are stable and demos do not depend on network access.
 - Evidence is ranked separately by source type, which keeps logs, runbooks, and deploys represented in the final report.
-- The triage engine only recommends runbook-backed or evidence-backed actions.
+- Report synthesis is separated from retrieval so deterministic local behavior and future LLM behavior share the same evidence contract.
 - The report carries assumptions explicitly because incident response decisions should not hide uncertainty.
 
 ## Production Evolution
 
-In a production version, the `TriageEngine` boundary would become an orchestration layer around an LLM with tools:
+In a production version, `TriageEngine` remains the orchestration layer and `LLMSynthesizer` becomes the model-backed report writer. That keeps the model behind a narrow contract:
+
+1. Receive an alert, ranked evidence, and matching runbooks.
+2. Produce structured output matching the `TriageReport` schema.
+3. Reference supplied evidence for suspected causes.
+4. Prefer runbook checks and mitigations for recommended actions.
+5. Ask for human approval before risky actions.
+
+The model-backed synthesizer can use tools for:
 
 - `search_logs(service, query, window)`
 - `query_metrics(service, metric, window)`
@@ -30,6 +39,19 @@ In a production version, the `TriageEngine` boundary would become an orchestrati
 - `create_incident_update(report)`
 
 The model should not directly invent mitigations. It should choose from runbooks, attach supporting evidence, and request human approval for risky steps such as rollback, failover, policy bypass, or customer-impacting configuration changes.
+
+## Code Boundary
+
+```text
+TriageEngine
+  - retrieves context
+  - selects matching runbooks
+  - delegates report writing
+
+ReportSynthesizer
+  - DeterministicSynthesizer: local demo and regression baseline
+  - LLMSynthesizer: production model integration point
+```
 
 ## Evaluation Strategy
 

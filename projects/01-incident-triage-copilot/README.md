@@ -14,8 +14,8 @@ Incident response is a high-value AI use case because responders need fast synth
 - Evidence-backed incident summaries
 - Runbook-aware recommended actions
 - Confidence scoring with explicit assumptions
-- Deterministic local triage engine for tests and demos
-- LLM-ready architecture for future tool calling
+- Deterministic local synthesizer for tests and demos
+- Explicit LLM synthesizer boundary for production integration
 - Evaluation fixtures for regression testing
 - Production notes for observability, safety, and governance
 
@@ -61,9 +61,25 @@ projects/01-incident-triage-copilot/
   tests/                 Unit tests
 ```
 
-## Extension Path
+## Where The LLM Fits
 
-The current implementation uses a deterministic local reasoning engine. In production, the `TriageEngine` boundary can call an LLM with tools for:
+The current implementation uses `DeterministicSynthesizer` so local runs and tests are repeatable. Production code can swap in `LLMSynthesizer` without changing retrieval, evidence ranking, input models, or the CLI contract.
+
+```text
+Alert + Logs + Runbooks + Deploys
+        ↓
+ContextRetriever
+        ↓
+Grounded evidence package
+        ↓
+ReportSynthesizer
+        ├─ DeterministicSynthesizer for local tests
+        └─ LLMSynthesizer for production model calls
+        ↓
+TriageReport
+```
+
+In production, the LLM layer would receive the grounded prompt package from `LLMSynthesizer.build_prompt_package()` and can use tools for:
 
 - log search
 - metrics queries
@@ -72,4 +88,4 @@ The current implementation uses a deterministic local reasoning engine. In produ
 - runbook retrieval
 - incident ticket creation
 
-The important design choice is that recommendations remain grounded in retrieved evidence and runbook steps, instead of allowing free-form model speculation.
+The important design choice is that the LLM is not the whole system. It is a replaceable synthesis layer constrained by retrieved evidence, runbook steps, structured output, and validation checks.

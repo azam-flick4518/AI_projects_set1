@@ -2,6 +2,7 @@ import unittest
 from pathlib import Path
 
 from incident_triage.io import load_alert, load_deploys, load_logs, load_runbooks
+from incident_triage.synthesizer import LLMSynthesizer
 from incident_triage.triage import TriageEngine
 
 
@@ -42,6 +43,20 @@ class TriageEngineTests(unittest.TestCase):
         self.assertIn("## Recommended Actions", markdown)
         self.assertIn("## Evidence", markdown)
         self.assertIn("## Assumptions", markdown)
+
+    def test_llm_synthesizer_builds_grounded_prompt_package(self) -> None:
+        context = self.engine.retriever.retrieve(self.alert)
+        runbooks = self.engine._matching_runbooks(context)
+        synthesizer = LLMSynthesizer(model_name="production-model")
+
+        prompt_package = synthesizer.build_prompt_package(self.alert, context, runbooks)
+
+        self.assertEqual(prompt_package["model"], "production-model")
+        self.assertEqual(prompt_package["alert"]["service"], "checkout-api")
+        self.assertGreaterEqual(len(prompt_package["evidence"]), 3)
+        self.assertTrue(
+            any("Do not invent" in constraint for constraint in prompt_package["constraints"])
+        )
 
 
 if __name__ == "__main__":
