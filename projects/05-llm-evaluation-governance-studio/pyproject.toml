@@ -1,0 +1,10 @@
+[project]
+name = "llm-evaluation-governance-studio"
+version = "0.1.0"
+description = "Local LLM evaluation and governance harness with policy checks and regression reports."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
