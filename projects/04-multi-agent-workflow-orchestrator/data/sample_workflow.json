@@ -1,0 +1,33 @@
+{
+  "id": "wf-release-risk-review",
+  "goal": "Prepare a safe release plan for a payment token validation change.",
+  "tasks": [
+    {
+      "id": "task-3",
+      "title": "Review rollout plan and missing tests",
+      "capability": "review",
+      "risk": "medium",
+      "inputs": {
+        "source": "release checklist"
+      }
+    },
+    {
+      "id": "task-1",
+      "title": "Collect service and policy context",
+      "capability": "research",
+      "risk": "low",
+      "inputs": {
+        "source": "service catalog and policy docs"
+      }
+    },
+    {
+      "id": "task-2",
+      "title": "Prepare rollback-ready release steps",
+      "capability": "implementation",
+      "risk": "high",
+      "inputs": {
+        "approval": "granted"
+      }
+    }
+  ]
+}

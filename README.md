@@ -7,7 +7,7 @@ This repository contains five AI projects designed to demonstrate practical AI c
 1. [AI Incident Triage Copilot](projects/01-incident-triage-copilot/README.md)
 2. [Enterprise Knowledge Graph RAG Platform](projects/02-knowledge-graph-rag/README.md)
 3. [AI Code Review & Architecture Coach](projects/03-ai-code-review-coach/README.md)
-4. Multimodal Customer Support Intelligence
+4. [Multi-Agent Workflow Orchestrator](projects/04-multi-agent-workflow-orchestrator/README.md)
 5. LLM Evaluation & Governance Studio
 
 Each project is intended to stand alone with its own product brief, architecture notes, runnable code, tests or evals, and production considerations.

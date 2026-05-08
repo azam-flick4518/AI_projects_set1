@@ -1,0 +1,10 @@
+[project]
+name = "multi-agent-workflow-orchestrator"
+version = "0.1.0"
+description = "Local multi-agent workflow orchestration demo with approval gates and audit logs."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

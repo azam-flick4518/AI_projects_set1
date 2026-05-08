@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eval-approved-release-workflow",
+    "workflow": "../data/sample_workflow.json",
+    "expected_status": "completed",
+    "expected_agents": [
+      "research-agent",
+      "implementation-agent",
+      "review-agent"
+    ],
+    "requires_approval_event": true
+  }
+]
