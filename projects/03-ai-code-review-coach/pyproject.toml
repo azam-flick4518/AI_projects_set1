@@ -1,0 +1,10 @@
+[project]
+name = "ai-code-review-coach"
+version = "0.1.0"
+description = "Local code review and architecture coach with deterministic checks and an LLM-ready boundary."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

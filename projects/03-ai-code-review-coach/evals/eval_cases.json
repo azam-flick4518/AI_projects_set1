@@ -1,0 +1,12 @@
+[
+  {
+    "id": "eval-payment-review-risk",
+    "repo": "../data/sample_repo",
+    "expected_findings": [
+      "security-hardcoded-secret",
+      "reliability-broad-except",
+      "security-dynamic-execution"
+    ],
+    "minimum_test_suggestions": 1
+  }
+]
