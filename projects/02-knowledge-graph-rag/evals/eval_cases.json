@@ -1,0 +1,13 @@
+[
+  {
+    "id": "eval-checkout-payments-policy",
+    "query": "Which services depend on payments-api and what policy applies to customer data?",
+    "expected_contains": [
+      "checkout-api",
+      "payments-api",
+      "customer-data-handling"
+    ],
+    "minimum_citations": 2,
+    "notes": "Protects the demo behavior: connect service dependencies to the customer data policy with citations."
+  }
+]

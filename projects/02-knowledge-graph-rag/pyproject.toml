@@ -1,0 +1,10 @@
+[project]
+name = "knowledge-graph-rag"
+version = "0.1.0"
+description = "Local knowledge graph RAG platform with graph-expanded retrieval and cited answers."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
