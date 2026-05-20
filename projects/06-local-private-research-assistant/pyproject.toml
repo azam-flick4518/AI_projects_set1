@@ -1,0 +1,10 @@
+[project]
+name = "local-private-research-assistant"
+version = "0.1.0"
+description = "Local-first research assistant with retrieval, citations, memory, and an LLM-ready synthesis boundary."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

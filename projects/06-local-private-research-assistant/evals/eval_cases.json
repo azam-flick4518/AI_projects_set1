@@ -1,0 +1,12 @@
+[
+  {
+    "id": "eval-local-first-research",
+    "query": "What should a local research assistant optimize for?",
+    "expected_contains": [
+      "privacy",
+      "citations",
+      "local"
+    ],
+    "minimum_citations": 1
+  }
+]

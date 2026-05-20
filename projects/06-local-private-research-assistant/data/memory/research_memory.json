@@ -1,0 +1,7 @@
+[
+  {
+    "id": "mem-1",
+    "text": "The portfolio should prefer local-first projects that can run without external APIs.",
+    "tags": ["portfolio", "local-ai", "privacy"]
+  }
+]
