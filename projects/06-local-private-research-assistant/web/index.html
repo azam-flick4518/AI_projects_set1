@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Research Assistant</title>
+    <link rel="stylesheet" href="/app.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <div class="query-panel">
+          <div>
+            <p class="eyebrow">Local Private AI</p>
+            <h1>Research Assistant</h1>
+          </div>
+
+          <label for="question">Question</label>
+          <textarea id="question" rows="4">What should a local research assistant optimize for?</textarea>
+
+          <label for="remember">Add memory before answering</label>
+          <textarea id="remember" rows="3" placeholder="Optional project preference or research note"></textarea>
+
+          <button id="askButton" type="button">Ask</button>
+        </div>
+
+        <div class="answer-panel">
+          <div class="answer-header">
+            <div>
+              <p class="eyebrow">Grounded Answer</p>
+              <h2>Result</h2>
+            </div>
+            <span id="status">Ready</span>
+          </div>
+
+          <article id="answer" class="answer"></article>
+
+          <div class="grid">
+            <section>
+              <h3>Citations</h3>
+              <ul id="citations"></ul>
+            </section>
+            <section>
+              <h3>Memories Used</h3>
+              <ul id="memories"></ul>
+            </section>
+          </div>
+
+          <section>
+            <h3>Assumptions</h3>
+            <ul id="assumptions"></ul>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
